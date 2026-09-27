@@ -1,10 +1,12 @@
 """Exercise the actual app in fresh headless Chrome and capture launch media."""
 from pathlib import Path
 import json
+import os
 from playwright.sync_api import sync_playwright
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'outputs'
+BASE_URL=os.environ.get('ATLAS_BASE_URL','http://localhost:5173').rstrip('/')
 OUT.mkdir(exist_ok=True)
 
 def run():
@@ -14,7 +16,7 @@ def run():
         page=context.new_page()
         errors=[]
         page.on('pageerror',lambda error: errors.append(str(error)))
-        page.goto('http://localhost:3000/',wait_until='networkidle')
+        page.goto(BASE_URL+'/',wait_until='networkidle')
         page.get_by_role('heading',level=1).wait_for()
         assert page.title()=='AI Reliability Atlas — Rajan Tripathi'
         page.screenshot(path=str(OUT/'atlas-desktop.png'),full_page=True)
@@ -23,10 +25,28 @@ def run():
         page.get_by_role('button',name='Supplement v2',exact=True).click()
         assert '98%' in panel.inner_text()
         assert 'Targeted additions' in panel.inner_text()
+        # The demo must compute new rankings and export the actual input corpus.
+        lab=page.locator('.retrieval-lab')
+        assert 'Travel expense deadline' in lab.locator('.retrieval-comparison article').nth(1).locator('.rank-heading').first.inner_text()
+        page.get_by_label('Your search query').fill('annual leave')
+        assert 'Annual leave' in lab.locator('.rank-heading').first.inner_text()
+        page.get_by_label('Your search query').fill('xyzzzz')
+        assert lab.get_by_text('No matching terms.',exact=False).count()==2
+        page.get_by_role('button',name='Reset example query',exact=True).click()
+        with page.expect_download() as retrieval_dl:
+            page.get_by_role('button',name='Download query, corpus & scoring trace').click()
+        retrieval_dl.value.save_as(str(OUT/'example-retrieval-trace.json'))
+        trace=json.loads((OUT/'example-retrieval-trace.json').read_text())
+        assert len(trace['corpora']['baseline'])==3
+        assert len(trace['corpora']['repaired'])==4
+        assert trace['repaired'][0]['id']=='expense-deadline'
+        lab.screenshot(path=str(OUT/'retrieval-lab.png'))
         panel.screenshot(path=str(OUT/'experiment-knowledge.png'))
         page.get_by_role('button',name='Inspect source evidence').click()
         page.get_by_role('dialog').wait_for(state='visible')
         assert 'soas-recall.csv' in page.get_by_role('dialog').inner_text()
+        assert 'not validated measures of answer quality' in page.get_by_role('dialog').inner_text()
+        assert page.get_by_role('link',name='Read the Atlas code').get_attribute('href')=='https://github.com/rajantripathi/ai-reliability-atlas'
         page.keyboard.press('Escape')
         assert not page.get_by_role('dialog').is_visible()
         page.get_by_role('button',name='02 / PERCEPTION').click()
@@ -64,8 +84,8 @@ def run():
         page.get_by_role('button',name='For research & teaching').click()
         assert 'independent annotation' in page.locator('.audience-copy').inner_text()
         # Downloadable proof must be reachable, not decorative controls.
-        for url in ['/evidence/atlas.json','/evidence/source-bundle.zip','/evidence/reproduce.md','/ATTRIBUTION.md','/og.png','/favicon.png']:
-            response=context.request.get('http://localhost:3000'+url)
+        for url in ['/evidence/atlas.json','/evidence/source-bundle.zip','/evidence/reproduce.md','/evidence/reading-notes.md','/ATTRIBUTION.md','/og.png','/favicon.png']:
+            response=context.request.get(BASE_URL+url)
             assert response.status==200,(url,response.status)
         for w in [390,768,1440]:
             page.set_viewport_size({'width':w,'height':900})
@@ -75,7 +95,7 @@ def run():
             page.screenshot(path=str(OUT/f'atlas-{w}.png'),full_page=True)
         assert not errors,errors
         # Verify keyboard focus and dialog focus containment.
-        page.goto('http://localhost:3000/',wait_until='networkidle')
+        page.goto(BASE_URL+'/',wait_until='networkidle')
         page.keyboard.press('Tab')
         assert page.locator('.skip-link').evaluate('(el)=>el===document.activeElement')
         page.get_by_role('button',name='Inspect source evidence').click()

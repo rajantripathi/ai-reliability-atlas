@@ -1,46 +1,50 @@
 # Launch kit
 
-## LinkedIn draft (publish after reviewing the live site)
+## LinkedIn draft (ready after public access is verified)
 
-Three AI failures that call for three different engineering decisions.
+What happens when a retrieval system ranks a document highly—but that document does not contain the answer?
 
-1. The answer is absent from the corpus.
-2. The page is visible to a person but absent from the search index.
-3. The image looks fine, but permission to use it cannot be established from pixels.
+I built a small interactive demo where you can test this yourself. Type a query, inspect the ranked documents, and compare the result after adding a missing source. Download the corpus and the scoring trace to reproduce it.
 
-I built AI Reliability Atlas to let you explore these boundaries.
+It is part of AI Reliability Atlas, which brings together three of my applied AI studies:
 
-It brings together my English–Uzbek retrieval pilot, CaseLens-VLM document experiments, and Visual Release Gate. You can change historical configurations, inspect recorded model disagreements, and exercise a small policy engine that exports its decision trace.
+• English–Uzbek retrieval: what changes when missing sources enter the corpus?
+• Scanned-document search: what evidence does the retriever actually have?
+• Visual review: what can a model observe, and what still requires human authority?
 
-The evidence travels with the interface: source snapshots, sample sizes, commit references and limitations.
+The site includes recorded disagreements, original evidence snapshots, an executable policy sandbox, and public code with reproduction steps.
 
-A qualification I want readers to see: the Uzbek corpus repair targeted evaluation-linked missing sources. The document study lacks an OCR baseline. And the visual-gate labels remain provisional. Those limits shape the next experiment.
+The scope is explicit: the interactive retrieval example uses fictional documents; the historical corpus repair was evaluation-linked; the document comparison lacks an OCR baseline; and the visual labels are provisional.
 
-For me, the useful question is: what evidence would make this system deserve our trust?
+This is an invitation to inspect the engineering and challenge the assumptions.
 
-Try the Atlas at the approved public URL, then tell me which assumption you would test first.
+Try it: https://rajan-ai-reliability-atlas.rajantripathi22.chatgpt.site
+Code: https://github.com/rajantripathi/ai-reliability-atlas
+
+Which would you test next: corpus coverage, OCR versus VLM retrieval, or disagreement between model decisions and human labels?
 
 #AppliedAI #MultimodalAI #RAG #AIEvaluation
 
 ## Featured description
-AI Reliability Atlas — three interactive studies in multilingual retrieval, visual evidence and governed decisions. Source artifacts, recorded failures and an executable policy sandbox.
+AI Reliability Atlas — explore three applied AI studies, run a small BM25 retrieval demo, inspect recorded failures, and export decision traces. Public code, evidence and reproduction steps included.
 
 ## CV bullet
-Built an interactive AI reliability lab connecting multilingual retrieval and VLM experiment artifacts to auditable source snapshots, reproducible result checks and a deterministic policy simulator with downloadable traces.
+Built an interactive AI evaluation portfolio with a browser-based BM25 retriever, per-term scoring traces, a policy engine tested across all 64 input combinations, and auditable snapshots of multilingual retrieval and VLM experiments.
 
 ## GitHub profile draft
-Place the Atlas first only after public release. Follow it with CaseLens-VLM, SOAS RAG Evaluation and Visual Release Gate. Link the Atlas as the guided entry point; keep the individual repositories as technical evidence. Review older profile metrics for the same limitations exposed in the Atlas.
+Suggested profile entry: AI Reliability Atlas — runnable retrieval and policy examples alongside inspectable multilingual and multimodal evaluation studies. Link the Atlas as the guided entry point and its repository as direct engineering evidence. Profile edits are not performed automatically.
 
 ## 40-second recording storyboard
-0–5s: headline and the three studies.
-5–13s: baseline → supplement v2; show domain changes and caveat.
-13–21s: metadata → hybrid; retain the missing OCR-baseline note.
-21–29s: phone brief → approval brief → recorded disagreement.
-29–36s: remove approval in sandbox; inspect UNSUPPORTED and JSON trace.
-36–40s: source notebook and contact section.
+0–4s: headline and the three studies.
+4–12s: type a retrieval query; inspect before/after rankings and change the query.
+12–16s: historical corpus repair; retain the evaluation-linked caveat.
+16–21s: hybrid retrieval and missing OCR-baseline note.
+21–30s: approval brief and recorded disagreement.
+30–35s: remove approval in the policy sandbox.
+35–40s: source notebook and engineering contribution.
 
 ## Release path
-Private review first. Publish publicly and replace the prose URL reference only after the public URL is confirmed. LinkedIn posting, GitHub profile edits and public repository creation have not been performed by this kit.
+The publication pass makes the reviewed site and Atlas source publicly accessible. Verify unauthenticated access to the site and v1.0.0 evidence links before using this draft. LinkedIn posting and GitHub profile edits remain manual; this file does not perform them.
 
 ## Social card provenance
 Generated using the built-in image tool. Saved as public/og.png. Prompt: editorial landscape social card; warm ivory #f3f0e8, forest green #233a32, chartreuse #dbe8a4, burnt orange #b55230. Exact headline “Where AI breaks.” / “What the evidence says.” Title “AI RELIABILITY ATLAS”, byline “Rajan Tripathi, PhD”, line “Knowledge. Perception. Authority.” Three stacked numbered paper sheets, abstract chart marks, no quantitative claims or institutional logos.

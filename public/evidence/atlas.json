@@ -1065,7 +1065,7 @@
       "path": "research_outputs/table_baseline_vs_supplements.csv",
       "commit": "c2e86096486a7586233f609efbdca148b93c57bf",
       "sha256": "9167ffc153b8653c531678bb80d498a5762134a020e05ab3177b196f67f57adb",
-      "url": "https://github.com/rajantripathi/soas-rag-evaluation/blob/c2e86096486a7586233f609efbdca148b93c57bf/research_outputs/table_baseline_vs_supplements.csv",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/soas-recall.csv",
       "snapshot": "/evidence/soas-recall.csv"
     },
     {
@@ -1074,7 +1074,7 @@
       "path": "results/reports/manual_eval_v2_uz_supplement_v2_report_20260309.md",
       "commit": "c2e86096486a7586233f609efbdca148b93c57bf",
       "sha256": "076b2563e33d4602d8a2f6403301b4d2f10aa08fa80023b2038ad3eea178ddaf",
-      "url": "https://github.com/rajantripathi/soas-rag-evaluation/blob/c2e86096486a7586233f609efbdca148b93c57bf/results/reports/manual_eval_v2_uz_supplement_v2_report_20260309.md",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/soas-methodology.md",
       "snapshot": "/evidence/soas-methodology.md"
     },
     {
@@ -1083,7 +1083,7 @@
       "path": "docs/results.md",
       "commit": "6e1e1ee5faae3b7586e43b297b55d806de3bed06",
       "sha256": "e1209cc669d5889ab39153dba86d73ecaa2483b223f4176cf883399a4ffa6204",
-      "url": "https://github.com/rajantripathi/caselens-vlm/blob/6e1e1ee5faae3b7586e43b297b55d806de3bed06/docs/results.md",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/caselens-results.md",
       "snapshot": "/evidence/caselens-results.md"
     },
     {
@@ -1092,7 +1092,7 @@
       "path": "sample_pack/data/briefs.jsonl",
       "commit": "f3e619ac6cad1935133f678ebb4da1829072d25a",
       "sha256": "3f1d48e438f74e1612140c7b10f737a9022f66cc9f66069e32b6d2a8be8ae75e",
-      "url": "https://github.com/rajantripathi/visual-release-gate/blob/f3e619ac6cad1935133f678ebb4da1829072d25a/sample_pack/data/briefs.jsonl",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/gate-briefs.jsonl",
       "snapshot": "/evidence/gate-briefs.jsonl"
     },
     {
@@ -1101,7 +1101,7 @@
       "path": "sample_pack/data/labels.jsonl",
       "commit": "f3e619ac6cad1935133f678ebb4da1829072d25a",
       "sha256": "ad4d8bed47655fabcaf4f20366e362ddde3c1d125b95007141a91e78817c92c3",
-      "url": "https://github.com/rajantripathi/visual-release-gate/blob/f3e619ac6cad1935133f678ebb4da1829072d25a/sample_pack/data/labels.jsonl",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/gate-labels.jsonl",
       "snapshot": "/evidence/gate-labels.jsonl"
     },
     {
@@ -1110,7 +1110,7 @@
       "path": "docs/results/live-run-gemini-3.6-flash.jsonl",
       "commit": "f3e619ac6cad1935133f678ebb4da1829072d25a",
       "sha256": "23c142b6860969bf16c45ebb772ae018d5a4c0dbd393c02c055279747ec67400",
-      "url": "https://github.com/rajantripathi/visual-release-gate/blob/f3e619ac6cad1935133f678ebb4da1829072d25a/docs/results/live-run-gemini-3.6-flash.jsonl",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/gate-run.jsonl",
       "snapshot": "/evidence/gate-run.jsonl"
     },
     {
@@ -1119,7 +1119,7 @@
       "path": "sample_pack/PROVENANCE.md",
       "commit": "f3e619ac6cad1935133f678ebb4da1829072d25a",
       "sha256": "fa57d0ea1acc63e7269af3e099d4e47365a19cc317be5278b089f2837e31253f",
-      "url": "https://github.com/rajantripathi/visual-release-gate/blob/f3e619ac6cad1935133f678ebb4da1829072d25a/sample_pack/PROVENANCE.md",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/gate-provenance.md",
       "snapshot": "/evidence/gate-provenance.md"
     },
     {
@@ -1128,7 +1128,7 @@
       "path": "DATA_LICENSE.md",
       "commit": "f3e619ac6cad1935133f678ebb4da1829072d25a",
       "sha256": "29fbde0e44d2cd6aa1a90d3a33ab83e9e23e85dd0cefb213e790db7dc6843423",
-      "url": "https://github.com/rajantripathi/visual-release-gate/blob/f3e619ac6cad1935133f678ebb4da1829072d25a/DATA_LICENSE.md",
+      "url": "https://github.com/rajantripathi/ai-reliability-atlas/blob/v1.0.0/public/evidence/gate-data-license.md",
       "snapshot": "/evidence/gate-data-license.md"
     }
   ]
